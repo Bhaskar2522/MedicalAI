@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Plus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background 3D Starfield -->
+    <div class="background-model" id="starfield-background">
+        <canvas id="starfield-canvas"></canvas>
+    </div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <span> MED-AI</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Symptom Check</a>
+            <a href="#">Medicines</a>
+            <a href="appointment.html">Book Appointment</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button class="cart-btn"  onclick="location.href='cart.html'">Add to Cart 🛒</button>
+        <button class="login-btn" onclick="location.href='login.html'">Sign In</button>
+    </header>
+
+<!-- Hero Section -->
+    <section class="hero">
+    <div class="hero-container">
+        <!-- Left: Image -->
+        <div class="hero-image">
+            <img src="https://biteable.com/wp-content/uploads/2022/11/Healthcare01.gif" alt="Healthcare Illustration">
+        </div>
+
+        <!-- Right: Text -->
+        <div class="hero-text">
+            <h1>Your Health, <span>Our Priority</span></h1>
+            <p>Get instant symptom analysis and personalized medicine delivery right to your doorstep. Trusted by thousands for secure and fast healthcare assistance.</p>
+            
+            <!-- Animated Counters -->
+            <div class="counters">
+                <div class="counter-box">
+                    <h2 class="counter" data-target="5000">5000+</h2>
+                    <p>Patients Served</p>
+                </div>
+                <div class="counter-box">
+                    <h2 class="counter" data-target="1200">1200+</h2>
+                    <p>Medicines Available</p>
+                </div>
+                <div class="counter-box">
+                    <h2 class="counter" data-target="99">99%</h2>
+                    <p>% Satisfaction Rate</p>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="hero-buttons">
+                <a href="symptomcheck.html" class="btn-primary">🩺 Start Symptom Check</a>
+                <a href="browsemedicines.html" class="btn-secondary">💊 Browse Medicines</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- Features Section -->
+<section class="features" id="features">
+  <h2 class="section-title">Healthcare Features</h2>
+
+  <div class="features-container">
+    <div class="feature-card">
+      <div class="icon">💬</div>
+      <h3>AI-Powered Chatbot</h3>
+      <p>Get instant answers about your symptoms and receive recommended over-the-counter remedies.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🚚</div>
+      <h3>Easy Medicine Delivery</h3>
+      <p>Order from our online pharmacy and have medicines delivered safely to your doorstep.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">⚕️</div>
+      <h3>24/7 Virtual Care</h3>
+      <p>Consult our AI system anytime and get preliminary analysis before visiting a doctor.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Disclaimer Section -->
+<div id="disclaimer" class="disclaimer">
+  <p>
+    <strong>MEDICAL DISCLAIMER:</strong> This service provides general information only and is <strong>NOT</strong> a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. If you are experiencing a medical emergency, call emergency services immediately.
+  </p>
+</div>
+
+<!-- Symptom Check -->
+ <section class="symptom-check" id="symptom-check">
+  <h2 class="section-title">🩺 Symptom Check</h2>
+  <div class="symptom-check-container"></div>
+
+  <!-- 1. Symptom Categories -->
+ <div class="card">
+  <a href="Symptom Categories.html" class="card-header-link">
+    <div class="card-header">1. Symptom Categories</div>
+  </a>
+  <div class="card-body">
+    <ul>
+      <li><strong>Physical:</strong> fatigue, dizziness, muscle weakness, joint pain</li>
+      <li><strong>Digestive:</strong> bloating, nausea, irregular bowel movements</li>
+      <li><strong>Skin & Hair:</strong> rashes, unusual hair fall, nail changes</li>
+      <li><strong>Mental/Emotional:</strong> stress, mood swings, sleep disturbances</li>
+      <li><strong>Sensory:</strong> blurred vision, ringing in ears, smell/taste changes</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2. Symptom Severity & Duration -->
+ <div class="card">
+  <a href="Symptom Severity.html" class="card-header-link">
+  <div class="card-header">2. Symptom Severity & Duration Options</div>
+ </a>
+  <div class="card-body">
+    <ul>
+      <li><strong>Severity:</strong> Mild / Moderate / Severe</li>
+      <li><strong>Duration:</strong> Acute (0–3 days) / Subacute (4–14 days) / Chronic (15+ days)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. Lifestyle & Trigger Factors -->
+ <div class="card">
+    <a href="lifestyle-factors.html" class="card-header-link">
+        <div class="card-header">3. Lifestyle & Trigger Factors</div>
+    </a>
+    <div class="card-body">
+        <ul>
+            <li>Sleep quality: poor, moderate, good</li>
+            <li>Stress level: low, medium, high</li>
+            <li>Diet patterns: spicy, oily, irregular meals</li>
+            <li>Recent travel or exposure to allergens</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 4. Fun / Unique Symptom Options -->
+ <div class="card">
+    <a href="fun-symptoms.html" class="card-header-link">
+        <div class="card-header">4. Fun / Unique Symptom Options</div>
+    </a>
+    <div class="card-body">
+        <ul>
+            <li>Unusual cravings</li>
+            <li>Sensitivity to light or sound</li>
+            <li>Heart palpitations after coffee/exercise</li>
+            <li>Mood changes during weather changes</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 5. Multiple Choice / Symptom Matrix -->
+ <div class="card">
+    <a href="Symptom Matrix.html" class="card-header-link">
+        <div class="card-header">5. Multiple Choice / Symptom Matrix</div>
+    </a>
+    <div class="card-body">
+        <ul>
+            <li>Head → headache, dizziness, blurred vision</li>
+            <li>Chest → palpitations, tightness, shortness of breath</li>
+            <li>Stomach → nausea, bloating, cramps</li>
+        </ul>
+        <p class="tip">💡 Did you know? Fatigue could be caused by low iron, dehydration, or stress.</p>
+    </div>
+</div>
+</section>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Pharmacy Catalog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Medicine Catalog 💊</h1>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+    </header>
+    
+    <div class="filter-section">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search medicines by name or description...">
+        </div>
+        
+        <div class="categories">
+            <a href="#" class="category-btn active" data-category="all">All Categories</a>
+            <a href="pain-relief.html" class="category-btn" data-category="pain-relief">Pain Relief</a>
+            <a href="cold-flu.html" class="category-btn" data-category="cold-flu">Cold & Flu</a>
+            <a href="allergy.html" class="category-btn" data-category="allergy">Allergy</a>
+            <a href="digestive.html" class="category-btn" data-category="digestive">Digestive</a>
+            <a href="vitamins.html" class="category-btn" data-category="vitamins">Vitamins</a>
+        </div>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+        <div class="product-card" data-category="pain-relief" data-name="Acetaminophen">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Acetaminophen 500mg">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Pain Relief</span>
+                <h2 class="product-title">Acetaminophen 500mg</h2>
+                <p class="product-description">Fast relief from mild to moderate pain and fever.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹680</span>
+                    <button class="add-to-cart-btn" data-product-name="Acetaminophen 500mg" data-price="680">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2-3 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pain-relief" data-name="Aspirin">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Aspirin 500mg">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Pain Relief</span>
+                <h2 class="product-title">Aspirin 500mg</h2>
+                <p class="product-description">Reduces pain, fever, or inflammation. Also an antiplatelet.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,040</span>
+                    <button class="add-to-cart-btn" data-product-name="Aspirin 500mg" data-price="1040">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 1-2 Days
+            </div>
+        </div>
+        
+        <div class="product-card" data-category="pain-relief" data-name="Ibuprofen">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=400&fit=crop" alt="Ibuprofen 200mg">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Pain Relief</span>
+                <h2 class="product-title">Ibuprofen 200mg</h2>
+                <p class="product-description">NSAID for pain, fever, and swelling relief.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹780</span>
+                    <button class="add-to-cart-btn" data-product-name="Ibuprofen 200mg" data-price="780">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 3-5 Days
+            </div>
+        </div>
+        
+        <div class="product-card" data-category="cold-flu" data-name="Nasal Decongestant">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Nasal Decongestant">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Cold & Flu</span>
+                <h2 class="product-title">Nasal Decongestant Spray</h2>
+                <p class="product-description">Quickly relieves stuffy nose and sinus pressure.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹480</span>
+                    <button class="add-to-cart-btn" data-product-name="Nasal Decongestant Spray" data-price="480">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 1-2 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="allergy" data-name="Antihistamine">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop" alt="Antihistamine Tablet">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Allergy</span>
+                <h2 class="product-title">Antihistamine Tablet</h2>
+                <p class="product-description">Non-drowsy relief from hay fever and allergy symptoms.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,236</span>
+                    <button class="add-to-cart-btn" data-product-name="Antihistamine Tablet" data-price="1236">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2-3 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="vitamins" data-name="Vitamin C">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Vitamin C Tablets">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Vitamins</span>
+                <h2 class="product-title">Vitamin C Chewables</h2>
+                <p class="product-description">Essential antioxidant for immune support and health.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,519</span>
+                    <button class="add-to-cart-btn" data-product-name="Vitamin C Chewables" data-price="1519">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 3-5 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="digestive" data-name="Probiotic">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Daily Probiotic">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Digestive</span>
+                <h2 class="product-title">Daily Probiotic Capsules</h2>
+                <p class="product-description">Supports a healthy gut flora and digestive system.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹2,000</span>
+                    <button class="add-to-cart-btn" data-product-name="Daily Probiotic Capsules" data-price="2000">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2-3 Days
+            </div>
+        </div>
+        
+        <div class="product-card" data-category="cold-flu" data-name="Cold & Flu Relief">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Cold & Flu Relief">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Cold & Flu</span>
+                <h2 class="product-title">Max Strength Cold Relief</h2>
+                <p class="product-description">Fast, multi-symptom relief from cold and flu.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹719</span>
+                    <button class="add-to-cart-btn" data-product-name="Max Strength Cold Relief" data-price="719">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2-3 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="vitamins" data-name="Vitamin D3">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Vitamin D3 Capsules">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Vitamins</span>
+                <h2 class="product-title">Vitamin D3 1000IU</h2>
+                <p class="product-description">Supports bone and immune system health.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹840</span>
+                    <button class="add-to-cart-btn" data-product-name="Vitamin D3 1000IU" data-price="840">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 3-4 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="digestive" data-name="Antacid Tablets">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Antacid Tablets">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Digestive</span>
+                <h2 class="product-title">Antacid Tablets</h2>
+                <p class="product-description">Provides fast relief from heartburn and indigestion.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹624</span>
+                    <button class="add-to-cart-btn" data-product-name="Antacid Tablets" data-price="624">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cold-flu" data-name="Cough Syrup">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Cough Syrup">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Cold & Flu</span>
+                <h2 class="product-title">Herbal Cough Syrup</h2>
+                <p class="product-description">Soothes sore throat and relieves cough naturally.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹720</span>
+                    <button class="add-to-cart-btn" data-product-name="Herbal Cough Syrup" data-price="720">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 1-2 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="allergy" data-name="Nasal Spray">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Nasal Spray">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Allergy</span>
+                <h2 class="product-title">Allergy Relief Nasal Spray</h2>
+                <p class="product-description">Clears nasal congestion and reduces sneezing.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹900</span>
+                    <button class="add-to-cart-btn" data-product-name="Allergy Relief Nasal Spray" data-price="900">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pain-relief" data-name="Muscle Rub Gel">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Muscle Rub Gel">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Pain Relief</span>
+                <h2 class="product-title">Muscle Rub Gel</h2>
+                <p class="product-description">Provides cooling relief for sore muscles and joints.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,112</span>
+                    <button class="add-to-cart-btn" data-product-name="Muscle Rub Gel" data-price="1112">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 1-3 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="vitamins" data-name="Multivitamin Gummies">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Multivitamin Gummies">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Vitamins</span>
+                <h2 class="product-title">Multivitamin Gummies</h2>
+                <p class="product-description">Tasty gummies packed with essential nutrients.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,199</span>
+                    <button class="add-to-cart-btn" data-product-name="Multivitamin Gummies" data-price="1199">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 2-4 Days
+            </div>
+        </div>
+
+        <div class="product-card" data-category="digestive" data-name="Fiber Supplement">
+            <div class="card-image">
+                <img src="https://images.pexels.com/photos/3683056/pexels-photo-3683056.jpeg?w=400&h=400&fit=crop" alt="Fiber Supplement">
+            </div>
+            <div class="card-details">
+                <span class="product-category">Digestive</span>
+                <h2 class="product-title">Fiber Supplement Powder</h2>
+                <p class="product-description">Promotes healthy digestion and regularity.</p>
+                <div class="product-footer">
+                    <span class="product-price">₹1,320</span>
+                    <button class="add-to-cart-btn" data-product-name="Fiber Supplement Powder" data-price="1320">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-shipping-fast"></i> 3-5 Days
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Testimonials Section -->
+ <section class="testimonials-grid-section">
+    <h3>What Our Customers Say</h3>
+
+    <div class="testimonial-grid">
+        
+        <div class="testimonial-card">
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="review-quote">"The Ibuprofen worked wonders for my headache. Fast shipping and the price was excellent. I highly recommend this online pharmacy!"</p>
+            <div class="reviewer-info">
+                <span class="reviewer-name">— Anjali K.</span>
+                <span class="product-context">Purchased: Pain Relief</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="review-quote">"Authentic Vitamin D3 capsules. Great packaging, and I appreciate the email update on its expected delivery day."</p>
+            <div class="reviewer-info">
+                <span class="reviewer-name">— Vivek R.</span>
+                <span class="product-context">Purchased: Vitamins</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="review-quote">"Good price on my regular Probiotic. The site is very easy to navigate. My go-to place for digestive health supplements now."</p>
+            <div class="reviewer-info">
+                <span class="reviewer-name">— Sara T.</span>
+                <span class="product-context">Purchased: Digestive Care</span>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="Reviews.html" class="view-all-reviews-btn">Read All 1,200+ Reviews <i class="fas fa-long-arrow-alt-right"></i></a>
+
+</section>
+
+<!--contact section-->
+<section class="contact-section">
+    <h2>Need Help? Get in Touch.</h2>
+    <p class="contact-tagline">Our dedicated team is ready to assist you with prescriptions, orders, or health queries.</p>
+
+    <div class="contact-grid">
+
+        <div class="contact-form-container">
+            <form action="#" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <select name="subject" required>
+                    <option value="" disabled selected>Select Inquiry Type</option>
+                    <option value="order">Order/Delivery Inquiry</option>
+                    <option value="product">Product/Dosage Question</option>
+                    <option value="general">General Feedback</option>
+                </select>
+                <textarea name="message" rows="5" placeholder="Your Message or Question..." required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info-container">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt info-icon"></i>
+                <h4>Our Location</h4>
+                <p>123 Health Ave, Pharma City, PIN 110011, India</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-phone-alt info-icon"></i>
+                <h4>Phone Support</h4>
+                <p>+91 98765 43210 (Mon-Sat, 9 AM - 6 PM)</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-envelope info-icon"></i>
+                <h4>Email Us</h4>
+                <p>support@onlinepharma.in</p>
+            </div>
+            
+            <a href="Map.html" class="map-link">View on Map</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer section -->
+<footer>
+    <div class="footer-container">
+        
+        <div class="footer-column footer-brand">
+            <h4 class="footer-logo"> MED-AI <i class="fas fa-prescription-bottle-alt"></i></h4>
+            <p>Your trusted source for health and wellness delivered right to your door.</p>
+            
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email for health updates" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            
+            <div class="trust-badges">
+                <img src="https://static.vecteezy.com/system/resources/previews/012/528/256/non_2x/verified-icon-illustration-guaranteed-stamp-or-verified-badge-trendy-design-vector.jpg" alt="Verified Badge">
+                <img src="https://cdn-icons-png.flaticon.com/512/10340/10340707.png" alt="Secure Shopping Badge">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.p6OEFYeLjyhPs9o3AqmUPAHaH5?rs=1&pid=ImgDetMain&o=7&rm=3" alt="ISO Certified Badge">
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h5>Quick Links</h5>
+            <ul>
+                <li><a href="#">Shop Vitamins</a></li>
+                <li><a href="#">Cold & Flu Relief</a></li>
+                <li><a href="#">Pain Management</a></li>
+                <li><a href="#">Digestive Health</a></li>
+                <li><a href="#">Allergy Care</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h5>Customer Service</h5>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">FAQ / Help Center</a></li>
+                <li><a href="#">Prescription Policy</a></li>
+                <li><a href="#">My Account</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-contact">
+            <h5>Contact Info</h5>
+            <p>
+                <i class="fas fa-map-marker-alt"></i>123 Green Avenue, Pune, Maharashtra, India<br>
+                <i class="fas fa-phone-alt"></i>+91 98765 43210<br>
+                <i class="fas fa-envelope"></i> info@MED-AI.in
+            </p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Online Pharma. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    </div>
+</footer>
+
+</div> 
+</div>
+ <script src="cart.js"></script>
+ <script src="script.js"></script>
+ <script src="starfield-background.js"></script>
+</body>
+</html>
+        
+
+
