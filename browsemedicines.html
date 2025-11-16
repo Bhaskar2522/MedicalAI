@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💊 Browse Medicines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="browsemedicines.css">
+</head>
+<body>
+
+  <section class="browse-medicines">
+  <h2 class="section-title">💊 Browse Medicines</h2>
+
+  <!-- Filter & Search -->
+  <div class="filter-bar">
+    <input type="text" id="searchInput" placeholder="Search by symptom or medicine...">
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="pain">💊 Pain Relief</option>
+      <option value="fever">🌡 Fever & Cold</option>
+      <option value="respiratory">🫁 Respiratory</option>
+      <option value="heart">❤️ Heart & BP</option>
+      <option value="herbal">🌱 Herbal</option>
+    </select>
+  </div>
+
+  <!-- Medicine Grid -->
+  <div class="medicine-grid" id="medicineGrid">
+    <!-- Example Medicine Card -->
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Paracetamol</h3>
+        <p class="medicine-dosage">500mg | 10 tablets</p>
+        <div class="price">
+          ₹50 <span class="discount">-10%</span>
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>⚡ Fast-acting</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Contains paracetamol. Use as per dosage. Avoid overdosing.</p>
+        <p class="tip">💡 Take after food to avoid stomach upset.</p>
+      </div>
+    </div>
+
+    <!-- Duplicate cards for demo -->
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Herbal Multivitamin</h3>
+        <p class="medicine-dosage">1 capsule | Daily</p>
+        <div class="price">
+          ₹120
+        </div>
+        <div class="badges">
+          <span>🌱 Herbal</span>
+          <span>✅ Best seller</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Contains vitamins A, B, C & D. Suitable for adults.</p>
+        <p class="tip">💡 Take in the morning with water.</p>
+      </div>
+    </div>
+
+    <!-- Pain Relief Medicines -->
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Ibuprofen</h3>
+        <p class="medicine-dosage">400mg | 10 tablets</p>
+        <div class="price">
+          ₹80 <span class="discount">-15%</span>
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>⚡ Fast-acting</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Contains ibuprofen. Effective for pain and inflammation.</p>
+        <p class="tip">💡 Take with food to reduce stomach irritation.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Aspirin</h3>
+        <p class="medicine-dosage">100mg | 14 tablets</p>
+        <div class="price">
+          ₹45
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>❤️ Heart health</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Contains acetylsalicylic acid. Pain relief and blood thinner.</p>
+        <p class="tip">💡 Consult doctor before long-term use.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Diclofenac Gel</h3>
+        <p class="medicine-dosage">1% w/w | 30g tube</p>
+        <div class="price">
+          ₹95
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🎯 Topical</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Topical NSAID gel for muscle and joint pain.</p>
+        <p class="tip">💡 Apply 2-3 times daily on affected area.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Naproxen</h3>
+        <p class="medicine-dosage">250mg | 10 tablets</p>
+        <div class="price">
+          ₹110
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>⏰ Long-lasting</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Long-acting pain reliever for chronic conditions.</p>
+        <p class="tip">💡 Effects last up to 12 hours.</p>
+      </div>
+    </div>
+
+    <!-- Fever & Cold Medicines -->
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Crocin Advance</h3>
+        <p class="medicine-dosage">500mg | 15 tablets</p>
+        <div class="price">
+          ₹55 <span class="discount">-20%</span>
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>⚡ Fast-acting</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Paracetamol-based fever and pain relief.</p>
+        <p class="tip">💡 Safe for children above 12 years.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Combiflam</h3>
+        <p class="medicine-dosage">500mg+400mg | 10 tablets</p>
+        <div class="price">
+          ₹75
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🔀 Combination</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Paracetamol + Ibuprofen combination for dual action.</p>
+        <p class="tip">💡 Effective for high fever and body pain.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Cold & Flu Syrup</h3>
+        <p class="medicine-dosage">100ml | Multi-symptom</p>
+        <div class="price">
+          ₹120
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🍯 Soothing</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Relieves cough, cold, and fever symptoms.</p>
+        <p class="tip">💡 Take 2-3 times daily after meals.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Vicks Vaporub</h3>
+        <p class="medicine-dosage">50g | Topical balm</p>
+        <div class="price">
+          ₹85
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Natural</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Camphor, menthol, and eucalyptus for congestion relief.</p>
+        <p class="tip">💡 Apply on chest and throat before sleep.</p>
+      </div>
+    </div>
+
+    <!-- Respiratory Medicines -->
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Asthalin Inhaler</h3>
+        <p class="medicine-dosage">100mcg | 200 doses</p>
+        <div class="price">
+          ₹180
+        </div>
+        <div class="badges">
+          <span>⚠️ Prescription</span>
+          <span>⚡ Quick relief</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Salbutamol for asthma and breathing difficulties.</p>
+        <p class="tip">💡 Use as directed by doctor during attacks.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Cough Syrup</h3>
+        <p class="medicine-dosage">100ml | Expectorant</p>
+        <div class="price">
+          ₹65
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🍯 Soothing</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Helps loosen phlegm and clear chest congestion.</p>
+        <p class="tip">💡 Drink plenty of water while taking.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Nasal Drops</h3>
+        <p class="medicine-dosage">15ml | Decongestant</p>
+        <div class="price">
+          ₹45
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>👃 Nasal relief</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Relieves blocked nose and sinus congestion.</p>
+        <p class="tip">💡 Use 2-3 drops in each nostril.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Steam Inhaler</h3>
+        <p class="medicine-dosage">1 unit | Device</p>
+        <div class="price">
+          ₹350
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌬️ Natural therapy</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Electric steam inhaler for respiratory relief.</p>
+        <p class="tip">💡 Add eucalyptus oil for better results.</p>
+      </div>
+    </div>
+
+    <!-- Heart & BP Medicines -->
+    <div class="medicine-card" data-category="heart">
+      <div class="card-front">
+        <div class="medicine-icon">❤️</div>
+        <h3 class="medicine-name">Ecosprin 75</h3>
+        <p class="medicine-dosage">75mg | 14 tablets</p>
+        <div class="price">
+          ₹40
+        </div>
+        <div class="badges">
+          <span>⚠️ Prescription</span>
+          <span>❤️ Heart health</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Low-dose aspirin for cardiovascular protection.</p>
+        <p class="tip">💡 Take as prescribed by cardiologist.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="heart">
+      <div class="card-front">
+        <div class="medicine-icon">❤️</div>
+        <h3 class="medicine-name">BP Monitor</h3>
+        <p class="medicine-dosage">Digital | 1 unit</p>
+        <div class="price">
+          ₹850
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>📊 Monitoring</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Digital blood pressure monitor for home use.</p>
+        <p class="tip">💡 Measure at same time daily for accuracy.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="heart">
+      <div class="card-front">
+        <div class="medicine-icon">❤️</div>
+        <h3 class="medicine-name">Omega-3 Capsules</h3>
+        <p class="medicine-dosage">1000mg | 60 capsules</p>
+        <div class="price">
+          ₹450
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🐟 Heart support</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Fish oil capsules for heart and brain health.</p>
+        <p class="tip">💡 Take 1-2 capsules daily with meals.</p>
+      </div>
+    </div>
+
+    <!-- Herbal Medicines -->
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Tulsi Drops</h3>
+        <p class="medicine-dosage">30ml | Immunity booster</p>
+        <div class="price">
+          ₹150
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Ayurvedic</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Pure tulsi extract for immunity and respiratory health.</p>
+        <p class="tip">💡 Take 10-15 drops in warm water daily.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Turmeric Capsules</h3>
+        <p class="medicine-dosage">500mg | 60 capsules</p>
+        <div class="price">
+          ₹280
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Anti-inflammatory</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Curcumin capsules for natural anti-inflammatory support.</p>
+        <p class="tip">💡 Take with black pepper for better absorption.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Ashwagandha Tablets</h3>
+        <p class="medicine-dosage">500mg | 60 tablets</p>
+        <div class="price">
+          ₹320
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🧘 Stress relief</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Adaptogenic herb for stress and energy management.</p>
+        <p class="tip">💡 Best taken in the evening for better sleep.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Ginger Tea Bags</h3>
+        <p class="medicine-dosage">25 bags | Digestive aid</p>
+        <div class="price">
+          ₹95
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🍵 Soothing</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Natural ginger tea for digestion and nausea relief.</p>
+        <p class="tip">💡 Steep for 5 minutes in hot water.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Aloe Vera Gel</h3>
+        <p class="medicine-dosage">200ml | Skin & digestive</p>
+        <div class="price">
+          ₹180
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Multi-purpose</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Pure aloe vera for skin care and digestive health.</p>
+        <p class="tip">💡 Can be used topically or consumed.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Triphala Powder</h3>
+        <p class="medicine-dosage">200g | Digestive health</p>
+        <div class="price">
+          ₹220
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Ayurvedic</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Traditional Ayurvedic blend for digestive wellness.</p>
+        <p class="tip">💡 Mix 1 tsp in warm water before bed.</p>
+      </div>
+    </div>
+
+    <!-- Additional Pain Relief -->
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Volini Gel</h3>
+        <p class="medicine-dosage">50g | Pain relief gel</p>
+        <div class="price">
+          ₹110
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🎯 Topical</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Fast-acting pain relief gel for muscles and joints.</p>
+        <p class="tip">💡 Massage gently on affected area.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="pain">
+      <div class="card-front">
+        <div class="medicine-icon">💊</div>
+        <h3 class="medicine-name">Flexon MR</h3>
+        <p class="medicine-dosage">400mg+500mg | 10 tablets</p>
+        <div class="price">
+          ₹95
+        </div>
+        <div class="badges">
+          <span>⚠️ Prescription</span>
+          <span>🔀 Combination</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Ibuprofen + Paracetamol for severe pain relief.</p>
+        <p class="tip">💡 Take as prescribed by doctor.</p>
+      </div>
+    </div>
+
+    <!-- Additional Fever & Cold -->
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Dolo 650</h3>
+        <p class="medicine-dosage">650mg | 15 tablets</p>
+        <div class="price">
+          ₹60
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>⚡ Fast-acting</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Higher strength paracetamol for quick fever relief.</p>
+        <p class="tip">💡 Maximum 2 tablets per day.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="fever">
+      <div class="card-front">
+        <div class="medicine-icon">🌡</div>
+        <h3 class="medicine-name">Strepsils Lozenges</h3>
+        <p class="medicine-dosage">24 lozenges | Sore throat</p>
+        <div class="price">
+          ₹75
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🍯 Soothing</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Medicated lozenges for sore throat relief.</p>
+        <p class="tip">💡 Dissolve slowly in mouth, one every 2-3 hours.</p>
+      </div>
+    </div>
+
+    <!-- Additional Respiratory -->
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Levolin Inhaler</h3>
+        <p class="medicine-dosage">50mcg | 200 doses</p>
+        <div class="price">
+          ₹195
+        </div>
+        <div class="badges">
+          <span>⚠️ Prescription</span>
+          <span>⚡ Quick relief</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Levosalbutamol for bronchial asthma relief.</p>
+        <p class="tip">💡 Use during breathing difficulties as prescribed.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="respiratory">
+      <div class="card-front">
+        <div class="medicine-icon">🫁</div>
+        <h3 class="medicine-name">Benadryl Syrup</h3>
+        <p class="medicine-dosage">100ml | Antihistamine</p>
+        <div class="price">
+          ₹85
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🤧 Allergy relief</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>For allergic cough, cold, and respiratory symptoms.</p>
+        <p class="tip">💡 May cause drowsiness, avoid driving.</p>
+      </div>
+    </div>
+
+    <!-- Additional Heart & BP -->
+    <div class="medicine-card" data-category="heart">
+      <div class="card-front">
+        <div class="medicine-icon">❤️</div>
+        <h3 class="medicine-name">CoQ10 Supplements</h3>
+        <p class="medicine-dosage">100mg | 60 capsules</p>
+        <div class="price">
+          ₹550
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>❤️ Heart support</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Coenzyme Q10 for cardiovascular and energy support.</p>
+        <p class="tip">💡 Take with meals for better absorption.</p>
+      </div>
+    </div>
+
+    <!-- Additional Herbal -->
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Neem Capsules</h3>
+        <p class="medicine-dosage">500mg | 60 capsules</p>
+        <div class="price">
+          ₹250
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Detox</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Neem extract for skin health and immunity.</p>
+        <p class="tip">💡 Take 1-2 capsules twice daily.</p>
+      </div>
+    </div>
+
+    <div class="medicine-card" data-category="herbal">
+      <div class="card-front">
+        <div class="medicine-icon">🌱</div>
+        <h3 class="medicine-name">Amla Juice</h3>
+        <p class="medicine-dosage">500ml | Vitamin C rich</p>
+        <div class="price">
+          ₹180
+        </div>
+        <div class="badges">
+          <span>💚 OTC</span>
+          <span>🌿 Immunity</span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+      <div class="card-back">
+        <h4>Ingredients & Tips</h4>
+        <p>Pure amla juice for immunity and antioxidant support.</p>
+        <p class="tip">💡 Take 20ml diluted in water daily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
+<script src="cart.js"></script>
+<script src="browsemedicines.js"></script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+/* ====== RESET & BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    color: #004d40;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+/* ====== HEADER ====== */
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 121, 107, 0.1);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(178, 223, 219, 0.3);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #00796b, #26a69a);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);
+}
+
+.page-title {
+    font-size: 1.75rem;
+    color: #00695c;
+    font-weight: 700;
+    margin: 0;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #e0f2f1, #ffffff);
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.15);
+}
+
+.score-label {
+    font-weight: 600;
+    color: #00796b;
+    font-size: 0.9rem;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00796b;
+}
+
+.score-separator {
+    color: #80cbc4;
+    font-weight: 600;
+}
+
+.score-total {
+    color: #004d40;
+    font-weight: 600;
+}
+
+/* ====== MAIN SECTION ====== */
+.fun-symptoms {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ====== PROGRESS BAR ====== */
+.progress-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e0f2f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00796b, #26a69a);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(0, 121, 107, 0.5);
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #00796b;
+    font-weight: 600;
+}
+
+/* ====== GAME CONTAINER ====== */
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #00695c;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+}
+
+.section-title i {
+    color: #00796b;
+}
+
+/* ====== SYMPTOMS SECTION ====== */
+.symptoms {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.symptom-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdfc 100%);
+    border-radius: 16px;
+    padding: 1.25rem;
+    cursor: grab;
+    transition: all 0.3s ease;
+    border: 2px solid #e0f2f1;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.symptom-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 165, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.symptom-card:hover::before {
+    left: 100%;
+}
+
+.symptom-card:hover {
+    transform: translateX(5px);
+    border-color: #00796b;
+    box-shadow: 0 6px 20px rgba(0, 121, 107, 0.2);
+}
+
+.symptom-card:active {
+    cursor: grabbing;
+    transform: scale(0.98);
+}
+
+.symptom-card.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.symptom-card.matched {
+    opacity: 0.3;
+    pointer-events: none;
+    background: #c8e6c9;
+    border-color: #4caf50;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    border-radius: 12px;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h4 {
+    color: #00695c;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.card-content p {
+    color: #004d40;
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ====== TRIGGERS SECTION ====== */
+.triggers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.trigger-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdfc 100%);
+    border: 3px dashed #b2dfdb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.08);
+}
+
+.trigger-card.hovered {
+    border-color: #00796b;
+    border-style: solid;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 121, 107, 0.25);
+}
+
+.trigger-card.matched {
+    border-color: #4caf50;
+    border-style: solid;
+    background: linear-gradient(135deg, #c8e6c9, #e8f5e9);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.trigger-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.trigger-card h4 {
+    color: #00695c;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.trigger-hint {
+    font-size: 0.85rem;
+    color: #80cbc4;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.drop-indicator {
+    color: #b2dfdb;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.trigger-card.hovered .drop-indicator {
+    color: #00796b;
+    transform: translateY(5px);
+    animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(5px); }
+    50% { transform: translateY(10px); }
+}
+
+.trigger-card.matched .drop-indicator {
+    display: none;
+}
+
+.matched-symptom {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    animation: slideIn 0.4s ease;
+}
+
+.matched-symptom i {
+    font-size: 1.1rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== RESULT DISPLAY ====== */
+.result-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    min-height: 80px;
+}
+
+.result {
+    background: linear-gradient(135deg, #ffffff, #f0fdfc);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #004d40;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.15);
+    border: 2px solid #e0f2f1;
+    display: none;
+    animation: fadeInUp 0.5s ease;
+}
+
+.result.show {
+    display: block;
+}
+
+.result.success {
+    background: linear-gradient(135deg, #c8e6c9, #e8f5e9);
+    border-color: #4caf50;
+    color: #2e7d32;
+}
+
+.result.error {
+    background: linear-gradient(135deg, #ffcdd2, #ffe0e0);
+    border-color: #ef5350;
+    color: #c62828;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== COMPLETION MODAL ====== */
+.completion-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.completion-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.4s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s ease infinite;
+}
+
+.modal-content h2 {
+    color: #00695c;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.modal-message {
+    color: #004d40;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.modal-score {
+    background: linear-gradient(135deg, #e0f2f1, #ffffff);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #00796b;
+}
+
+.modal-score strong {
+    font-size: 1.5rem;
+    color: #00695c;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-reset,
+.btn-home {
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #00796b, #26a69a);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);
+}
+
+.btn-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 121, 107, 0.4);
+}
+
+.btn-home {
+    background: white;
+    color: #00796b;
+    border: 2px solid #00796b;
+}
+
+.btn-home:hover {
+    background: #00796b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+    .game-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .page-header {
+        padding: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .score-display {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .game-container {
+        gap: 2rem;
+    }
+
+    .modal-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .btn-reset,
+    .btn-home {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Shake animation for wrong matches */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.trigger-card.shake {
+    animation: shake 0.5s ease;
+}

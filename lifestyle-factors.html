@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle & Trigger Factors - MED-AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="lifestyle-factors.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <h1 class="page-title">
+                <i class="fas fa-leaf"></i> Lifestyle & Trigger Factors
+            </h1>
+        </div>
+    </header>
+
+    <section class="lifestyle-factors">
+        <p class="subtitle">Track your daily habits and lifestyle factors to get personalized health insights</p>
+
+        <!-- Progress Indicator -->
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0% Complete</span>
+        </div>
+
+        <div class="lifestyle-container">
+            <!-- Sleep & Rest Section -->
+            <div class="factor-section">
+                <div class="section-header">
+                    <div class="section-icon">😴</div>
+                    <h3>Sleep & Rest</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Sleep Quality
+                        <span class="tooltip" data-tooltip="Rate your overall sleep quality from poor to excellent">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="sleepQuality" min="0" max="3" step="1" value="0" class="custom-slider">
+                        <div class="slider-value" id="sleepQualityValue">Poor</div>
+                    </div>
+                    <div class="range-labels">
+                        <span>Poor</span>
+                        <span>Moderate</span>
+                        <span>Good</span>
+                        <span>Excellent</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Sleep Duration</label>
+                    <select id="sleepDuration" class="custom-select">
+                        <option value="<4h">&lt;4 hours</option>
+                        <option value="4-6h">4–6 hours</option>
+                        <option value="6-8h" selected>6–8 hours</option>
+                        <option value=">8h">&gt;8 hours</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Stress & Mental Health Section -->
+            <div class="factor-section">
+                <div class="section-header">
+                    <div class="section-icon">🧠</div>
+                    <h3>Stress & Mental Health</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>
+                        Stress Level
+                        <span class="tooltip" data-tooltip="Rate your current stress level">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="stressLevel" min="0" max="2" step="1" value="0" class="custom-slider">
+                        <div class="slider-value" id="stressLevelValue">Low</div>
+                    </div>
+                    <div class="range-labels">
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Relaxation Practices</label>
+                    <div class="toggle-buttons" id="relaxationButtons">
+                        <button class="toggle-btn" data-value="meditation">
+                            <i class="fas fa-om"></i> Meditation
+                        </button>
+                        <button class="toggle-btn" data-value="yoga">
+                            <i class="fas fa-spa"></i> Yoga
+                        </button>
+                        <button class="toggle-btn" data-value="breathing">
+                            <i class="fas fa-wind"></i> Deep Breathing
+                        </button>
+                        <button class="toggle-btn" data-value="music">
+                            <i class="fas fa-music"></i> Music Therapy
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diet & Nutrition Section -->
+            <div class="factor-section">
+                <div class="section-header">
+                    <div class="section-icon">🍎</div>
+                    <h3>Diet & Nutrition</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>Food Pattern</label>
+                    <select id="foodPattern" class="custom-select">
+                        <option value="spicy">Spicy 🌶️</option>
+                        <option value="oily">Oily 🍔</option>
+                        <option value="processed">Processed 🍟</option>
+                        <option value="balanced" selected>Balanced 🥗</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Hydration Level</label>
+                    <select id="hydration" class="custom-select">
+                        <option value="low">Low (&lt;1L/day) 💧</option>
+                        <option value="moderate" selected>Moderate (1-2L/day) 💧💧</option>
+                        <option value="high">High (&gt;2L/day) 💧💧💧</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Meal Frequency</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="mealFrequency" value="irregular" checked>
+                            <span class="radio-custom"></span>
+                            <span>Irregular</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="mealFrequency" value="regular">
+                            <span class="radio-custom"></span>
+                            <span>Regular (3 meals/day)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Physical Activity Section -->
+            <div class="factor-section">
+                <div class="section-header">
+                    <div class="section-icon">🏃</div>
+                    <h3>Physical Activity</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>Exercise Type</label>
+                    <select id="exerciseType" class="custom-select">
+                        <option value="cardio">Cardio 🏃</option>
+                        <option value="strength">Strength 🏋️</option>
+                        <option value="flexibility">Flexibility 🤸</option>
+                        <option value="mixed">Mixed 🎯</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Exercise Frequency</label>
+                    <select id="exerciseFrequency" class="custom-select">
+                        <option value="daily">Daily</option>
+                        <option value="3-4x">3-4 times/week</option>
+                        <option value="1-2x" selected>1-2 times/week</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Sedentary Hours (per day)</label>
+                    <select id="sedentaryHours" class="custom-select">
+                        <option value="<4h">&lt;4 hours</option>
+                        <option value="4-8h" selected>4–8 hours</option>
+                        <option value=">8h">&gt;8 hours</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Lifestyle Habits Section -->
+            <div class="factor-section">
+                <div class="section-header">
+                    <div class="section-icon">🚭</div>
+                    <h3>Lifestyle Habits</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label>Habits & Substances</label>
+                    <div class="toggle-buttons" id="habitsButtons">
+                        <button class="toggle-btn" data-value="smoking">
+                            <i class="fas fa-smoking-ban"></i> Smoking
+                        </button>
+                        <button class="toggle-btn" data-value="alcohol">
+                            <i class="fas fa-wine-glass"></i> Alcohol
+                        </button>
+                        <button class="toggle-btn" data-value="caffeine">
+                            <i class="fas fa-coffee"></i> Caffeine
+                        </button>
+                        <button class="toggle-btn" data-value="screen">
+                            <i class="fas fa-mobile-alt"></i> Excessive Screen Time
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Recent Travel</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="travel" value="yes">
+                            <span class="radio-custom"></span>
+                            <span>Yes (within 30 days)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="travel" value="no" checked>
+                            <span class="radio-custom"></span>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Allergen Exposure</label>
+                    <div class="toggle-buttons" id="allergenButtons">
+                        <button class="toggle-btn" data-value="pollen">
+                            <i class="fas fa-seedling"></i> Pollen
+                        </button>
+                        <button class="toggle-btn" data-value="dust">
+                            <i class="fas fa-dust"></i> Dust
+                        </button>
+                        <button class="toggle-btn" data-value="pet">
+                            <i class="fas fa-paw"></i> Pet Dander
+                        </button>
+                        <button class="toggle-btn" data-value="food">
+                            <i class="fas fa-utensils"></i> Food Allergens
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn-secondary" id="resetBtn">
+                <i class="fas fa-redo"></i> Reset All
+            </button>
+            <button class="btn-primary" id="analyzeBtn">
+                <i class="fas fa-chart-line"></i> Analyze & Get Insights
+            </button>
+            <button class="btn-save" id="saveBtn">
+                <i class="fas fa-save"></i> Save Assessment
+            </button>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="result-display" id="resultDisplay" style="display: none;">
+            <div class="result-header">
+                <h3>
+                    <i class="fas fa-clipboard-check"></i> Your Lifestyle Assessment
+                </h3>
+                <button class="close-result" id="closeResult">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="result-content">
+                <div class="summary-cards" id="summaryCards"></div>
+                
+                <div class="insights-section">
+                    <h4>
+                        <i class="fas fa-lightbulb"></i> Health Insights & Recommendations
+                    </h4>
+                    <div class="insights-list" id="insightsList"></div>
+                </div>
+
+                <div class="selected-factors" id="selectedFactors"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="lifestyle-factors.js"></script>
+</body>
+</html>

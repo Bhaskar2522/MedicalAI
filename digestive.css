@@ -1,0 +1,166 @@
+/* --- Global Variables (New Theme: Earthy Digestive) --- */
+:root {
+    --primary-orange: #00bcd4; /* Main Digestive/Comfort color */
+    --secondary-tan: #fff3e0; /* Light background for card image */
+    --text-dark: #3e2723; /* Deep brown/dark text color */
+    --text-medium: #795548; /* Medium brown for description */
+    --light-gray: #f5f5f5; /* Page background */
+    --price-color: #4caf50; /* Green accent for price (healthy contrast) */
+}
+
+/* Basic Setup */
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    background-color: #e0f7fa; /* Soft medical blue background */;
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Layout cards side-by-side */
+    justify-content: center;
+}
+
+/* --- Product Card Styling (Earthy Theme) --- */
+
+.product-card {
+    width: 300px; /* Fixed width for card consistency */
+    background-color: #ffffff;
+    border: 2px solid var(--secondary-tan); /* Thick, soft border */
+    border-radius: 10px;
+    /* Deep but subtle shadow */
+    box-shadow: 0 4px 15px rgba(62, 39, 35, 0.1); 
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect */
+.product-card:hover {
+    box-shadow: 0 8px 25px rgba(62, 39, 35, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Image Section */
+.card-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background-color: var(--secondary-tan); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+/* Details Section */
+.card-details {
+    padding: 18px 20px 20px;
+}
+
+.product-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-orange); /* Highlight category in orange */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--primary-orange);
+    padding-bottom: 2px;
+}
+
+.product-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    height: 40px; 
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Footer & Action */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #efebe9; /* Very light sepia line */
+}
+
+.product-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--price-color); /* Green for price provides a nice earthy contrast */
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-orange);
+    color: var(--text-dark); /* Dark text on orange button */
+    border: 1px solid var(--primary-orange);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e68a00;
+    color: white; /* Text turns white on hover */
+}
+
+/* Delivery Badge (Top right corner) */
+.delivery-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.delivery-badge i {
+    margin-right: 5px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    body {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .product-card {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 400px;
+    }
+}

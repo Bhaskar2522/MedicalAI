@@ -1,0 +1,150 @@
+/* Font & Reset */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section */
+.browse-medicines {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #00695c;
+  animation: fadeInDown 1s ease;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #b2dfdb;
+  outline: none;
+  font-size: 14px;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  border-color: #004d40;
+  box-shadow: 0 0 10px rgba(0,121,107,0.3);
+}
+
+/* Medicine Grid */
+.medicine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* Card Style */
+.medicine-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-front, .card-back {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+}
+
+.medicine-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.medicine-card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+.medicine-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.medicine-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004d40;
+  margin-bottom: 5px;
+}
+
+.medicine-dosage {
+  font-size: 0.9rem;
+  color: #636e72;
+}
+
+.price {
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.discount {
+  background: #e53935;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.badges span {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #b2dfdb;
+  color: #004d40;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.add-cart {
+  background: linear-gradient(90deg, #00796b, #26a69a);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,150,136,0.4);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

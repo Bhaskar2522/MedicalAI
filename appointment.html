@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - MED-AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <h1 class="page-title">
+                <i class="fas fa-calendar-check"></i> Book Appointment
+            </h1>
+        </div>
+    </header>
+
+    <section class="appointment-section">
+        <div class="container">
+            <!-- Appointment Type Selection -->
+            <div class="appointment-type-container">
+                <h2 class="section-heading">Choose Appointment Type</h2>
+                <div class="type-cards">
+                    <div class="type-card" data-type="call" id="callType">
+                        <div class="type-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone/Video Call</h3>
+                        <p>Consult with doctors via phone or video call from the comfort of your home</p>
+                        <div class="type-features">
+                            <span class="feature-tag">
+                                <i class="fas fa-check"></i> Instant booking
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-check"></i> Flexible timing
+                            </span>
+                        </div>
+                    </div>
+                    <div class="type-card" data-type="offline" id="offlineType">
+                        <div class="type-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>In-Person Visit</h3>
+                        <p>Visit our clinic for a physical consultation and examination</p>
+                        <div class="type-features">
+                            <span class="feature-tag">
+                                <i class="fas fa-check"></i> Physical examination
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-check"></i> Lab tests available
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="appointment-form-container" id="appointmentForm" style="display: none;">
+                <h2 class="section-heading">Appointment Details</h2>
+                
+                <form id="bookingForm" class="booking-form">
+                    <!-- Patient Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user"></i> Patient Information
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="patientName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="patientName" name="patientName" required 
+                                       placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">Age <span class="required">*</span></label>
+                                <input type="number" id="patientAge" name="patientAge" required 
+                                       placeholder="Enter your age" min="1" max="120">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="patientPhone" name="patientPhone" required 
+                                       placeholder="+91 98765 43210">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientEmail">Email Address <span class="required">*</span></label>
+                                <input type="email" id="patientEmail" name="patientEmail" required 
+                                       placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Type Specific Fields -->
+                    <div class="form-section" id="callFields">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-video"></i> Call Preferences
+                        </h3>
+                        <div class="form-group">
+                            <label>Call Type <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="callType" value="phone" checked>
+                                    <span class="radio-custom"></span>
+                                    <div class="radio-content">
+                                        <i class="fas fa-phone"></i>
+                                        <span>Phone Call</span>
+                                    </div>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="callType" value="video">
+                                    <span class="radio-custom"></span>
+                                    <div class="radio-content">
+                                        <i class="fas fa-video"></i>
+                                        <span>Video Call</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="callPlatform">Preferred Platform (for Video)</label>
+                            <select id="callPlatform" name="callPlatform">
+                                <option value="">Select platform</option>
+                                <option value="zoom">Zoom</option>
+                                <option value="google-meet">Google Meet</option>
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="telegram">Telegram</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section" id="offlineFields" style="display: none;">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-map-marker-alt"></i> Visit Details
+                        </h3>
+                        <div class="form-group">
+                            <label for="clinicLocation">Clinic Location <span class="required">*</span></label>
+                            <select id="clinicLocation" name="clinicLocation" required>
+                                <option value="">Select clinic location</option>
+                                <option value="main">Main Clinic - 123 Health Ave, Pharma City</option>
+                                <option value="branch1">Branch 1 - 456 Medical Street, Downtown</option>
+                                <option value="branch2">Branch 2 - 789 Wellness Plaza, Uptown</option>
+                            </select>
+                        </div>
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Please arrive 10 minutes before your scheduled appointment time.</p>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Selection -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user-md"></i> Select Doctor/Specialist
+                        </h3>
+                        <div class="form-group">
+                            <label for="specialty">Specialty <span class="required">*</span></label>
+                            <select id="specialty" name="specialty" required>
+                                <option value="">Select specialty</option>
+                                <option value="general">General Physician</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="psychiatry">Psychiatry</option>
+                                <option value="gynecology">Gynecology</option>
+                                <option value="neurology">Neurology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Select Doctor <span class="required">*</span></label>
+                            <select id="doctor" name="doctor" required>
+                                <option value="">Select a doctor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date & Time Selection -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-calendar-alt"></i> Date & Time
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="appointmentDate">Date <span class="required">*</span></label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required 
+                                       min="">
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Time Slot <span class="required">*</span></label>
+                                <select id="appointmentTime" name="appointmentTime" required>
+                                    <option value="">Select time slot</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="time-slots-info" id="timeSlotsInfo"></div>
+                    </div>
+
+                    <!-- Reason for Appointment -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-file-medical"></i> Reason for Appointment
+                        </h3>
+                        <div class="form-group">
+                            <label for="reason">Brief Description <span class="required">*</span></label>
+                            <textarea id="reason" name="reason" rows="4" required 
+                                      placeholder="Describe your symptoms or reason for consultation..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="urgent" id="urgent">
+                                <span class="checkbox-custom"></span>
+                                <span>Mark as urgent appointment</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-sticky-note"></i> Additional Information
+                        </h3>
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="3" 
+                                      placeholder="Any additional information you'd like to share..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-redo"></i> Reset Form
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Booking Confirmation Modal -->
+            <div class="confirmation-modal" id="confirmationModal">
+                <div class="modal-content">
+                    <div class="modal-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Appointment Booked Successfully!</h2>
+                    <div class="booking-details" id="bookingDetails"></div>
+                    <div class="modal-actions">
+                        <button class="btn-primary" onclick="closeModal()">
+                            <i class="fas fa-check"></i> Done
+                        </button>
+                        <button class="btn-secondary" onclick="viewAppointments()">
+                            <i class="fas fa-list"></i> View My Appointments
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="appointment.js"></script>
+</body>
+</html>
+

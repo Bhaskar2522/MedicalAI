@@ -1,0 +1,164 @@
+/* --- Global Variables (New Theme: Cool Teal Relief) --- */
+:root {
+    --primary-teal: #00bcd4; /* Main Teal/Sky Blue for Relief */
+    --light-teal: #e0f7fa; /* Light background for card image */
+    --text-dark: #263238; /* Dark, almost black text */
+    --text-medium: #546e7a; /* Muted grey for description */
+    --light-gray: #eceff1; /* Page background */
+    --price-color: #f44336; /* Warm Red accent for price (to signal fast action) */
+}
+
+/* Basic Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #e0f7fa; /* Soft medical blue background */ ;
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Layout cards side-by-side */
+    justify-content: center;
+}
+
+/* --- Product Card Styling (Cool Teal Theme) --- */
+
+.product-card {
+    width: 300px; /* Fixed width for card consistency */
+    background-color: #ffffff;
+    border: 1px solid var(--light-teal); 
+    border-radius: 6px; /* Sharper corners for a modern feel */
+    /* Clean, defined shadow */
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.2); 
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect */
+.product-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+    transform: translateY(-4px);
+}
+
+/* Image Section */
+.card-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background-color: var(--light-teal); /* Light teal background for product image area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9; /* Slightly faded image to keep focus on text */
+    transition: opacity 0.3s;
+}
+
+/* Details Section */
+.card-details {
+    padding: 18px 20px 20px;
+}
+
+.product-category {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-teal); /* Highlight category in teal */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    height: 40px; 
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Footer & Action */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid #cfd8dc; /* Solid grey divider */
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--price-color); /* Red for urgency/attention */
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-teal);
+    color: white;
+    border: none;
+    padding: 12px 18px; /* Slightly larger button */
+    border-radius: 3px; 
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0097a7;
+}
+
+/* Delivery Badge (Top right corner) */
+.delivery-badge {
+    position: absolute;
+    top: 0; /* Positioned right at the corner of the card */
+    right: 0;
+    background-color: var(--primary-teal);
+    color: white;
+    padding: 5px 10px;
+    /* Only round the corners that aren't at the card's edge */
+    border-bottom-left-radius: 6px; 
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.delivery-badge i {
+    margin-right: 5px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    body {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .product-card {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MED·AI - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="page-container">
+    <div class="intro-card">
+      <div class="badge">MED·AI</div>
+      <h1>Smart healthcare, streamlined.</h1>
+      <p>Access diagnostics, collaboration tools, and patient insights in one secure workspace.</p>
+      <ul>
+        <li>✔️ HIPAA-ready infrastructure</li>
+        <li>✔️ Adaptive AI guidance</li>
+        <li>✔️ On-call support 24/7</li>
+      </ul>
+    </div>
+
+    <div class="auth-card">
+      <div class="toggle-group">
+        <button type="button" class="toggle-btn active" data-auth-toggle="signup">Sign Up</button>
+        <button type="button" class="toggle-btn" data-auth-toggle="signin">Sign In</button>
+      </div>
+      
+      <h2 id="authTitle">Create Account</h2>
+      <p class="subtitle" id="authSubtitle">Choose how you want to get started.</p>
+
+      <button type="button" id="googleSignInBtn" class="btn google-btn">
+        <span class="icon">
+          <svg viewBox="0 0 533.5 544.3" aria-hidden="true">
+            <path d="M533.5 278.4c0-17.4-1.6-34.1-4.7-50.3H272v95.2h146.9c-6.3 33.7-25.4 62.2-54.1 81.3v67.5h87.5c51.3-47.3 81.2-117 81.2-193.7z" fill="#4285f4"/>
+            <path d="M272 544.3c73.4 0 135-24.3 180-66.2l-87.5-67.5c-24.3 16.3-55.4 25.9-92.5 25.9-71 0-131.2-47.9-152.8-112.3H30.6v70.5c44.3 87.9 135 149.6 241.4 149.6z" fill="#34a853"/>
+            <path d="M119.2 323.8c-10.6-31.7-10.6-65.9 0-97.6v-70.5H30.6c-41.2 82.3-41.2 179.2 0 261.5l88.6-70.5z" fill="#fbbc04"/>
+            <path d="M272 107.7c37.7-.6 74.1 13.2 101.6 38.7L453 67C408.9 24.5 349.9.1 272 0 165.6 0 74.9 61.7 30.6 149.6l88.6 70.5C140.8 155.7 201 107.7 272 107.7z" fill="#ea4335"/>
+          </svg>
+        </span>
+        Continue with Google
+      </button>
+
+      <div class="divider"><span>or use email</span></div>
+
+      <form id="signupForm" class="card-section" data-auth-section="signup">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Dr. Jane Doe" required>
+          <div class="error" id="nameError"></div>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@clinic.com" required>
+          <div class="error" id="emailError"></div>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="At least 6 characters" required>
+          <div class="error" id="passwordError"></div>
+        </div>
+        <button type="submit" id="emailSubmitBtn" class="btn primary-btn">Create Account</button>
+      </form>
+
+      <form id="signinForm" class="card-section hidden" data-auth-section="signin">
+        <div class="input-group">
+          <label for="signinEmail">Email</label>
+          <input type="email" id="signinEmail" placeholder="you@clinic.com" required>
+          <div class="error" id="signinEmailError"></div>
+        </div>
+        <div class="input-group">
+          <label for="signinPassword">Password</label>
+          <input type="password" id="signinPassword" placeholder="Your password" required>
+          <div class="error" id="signinPasswordError"></div>
+        </div>
+        <button type="submit" id="signinSubmitBtn" class="btn primary-btn">Sign In</button>
+      </form>
+
+      <div class="divider hidden" data-auth-section="signin"><span>or sign in by phone</span></div>
+
+      <div class="card-section phone-section hidden" data-auth-section="signin">
+        <div class="input-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" placeholder="+1 555 123 4567">
+        </div>
+        <div class="action-row">
+          <button type="button" id="sendCodeBtn" class="btn secondary-btn">Send Code</button>
+          <input type="text" id="verificationCode" class="hidden" placeholder="6-digit code">
+          <button type="button" id="verifyCodeBtn" class="btn secondary-btn hidden">Verify & Sign In</button>
+        </div>
+        <div class="error" id="phoneError"></div>
+        <div class="success" id="phoneSuccess"></div>
+        <small class="helper-text">SMS sign-in is secured with invisible reCAPTCHA.</small>
+      </div>
+
+      <p class="switch">By continuing you agree to our terms & privacy policy.</p>
+      <div id="recaptcha-container"></div>
+    </div>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div id="firebaseLoading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; text-align: center;">
+    <div style="font-size: 2rem; margin-bottom: 1rem;">⏳</div>
+    <p style="color: #00796b; font-weight: 600;">Loading authentication service...</p>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>
