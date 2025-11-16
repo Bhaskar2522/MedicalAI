@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Severity & Duration Options - MED-AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Symptom Severity.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="logo">
+            <span onclick="location.href='index.html'"> MED-AI</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="symptomcheck.html">Symptom Check</a>
+            <a href="browsemedicines.html">Medicines</a>
+            <a href="cart.html">Cart 🛒</a>
+        </nav>
+    </header>
+
+    <section class="symptom-severity">
+        <div class="page-header">
+            <h1>🩺 Symptom Severity & Duration Assessment</h1>
+            <p class="subtitle">Provide detailed information about your symptoms to get personalized recommendations</p>
+        </div>
+
+        <div class="severity-card">
+            <!-- Severity Slider -->
+            <div class="input-group">
+                <label for="severity">
+                    <span class="label-icon">📊</span>
+                    Severity Level 
+                    <span class="tooltip" title="Rate how severe your symptoms are">ℹ️</span>
+                </label>
+                <div class="slider-container">
+                    <input type="range" id="severity" min="0" max="4" step="1" value="0">
+                    <div class="slider-value" id="severityDisplay">Mild</div>
+                </div>
+                <div class="range-labels">
+                    <span>Mild</span>
+                    <span>Moderate</span>
+                    <span>Severe</span>
+                    <span>Fluctuating</span>
+                    <span>Progressive</span>
+                </div>
+            </div>
+
+            <!-- Duration Slider -->
+            <div class="input-group">
+                <label for="duration">
+                    <span class="label-icon">⏱️</span>
+                    Duration 
+                    <span class="tooltip" title="How long have you been experiencing these symptoms?">ℹ️</span>
+                </label>
+                <div class="slider-container">
+                    <input type="range" id="duration" min="0" max="4" step="1" value="0">
+                    <div class="slider-value" id="durationDisplay">Acute (0-3 days)</div>
+                </div>
+                <div class="range-labels">
+                    <span>Acute<br>(0-3 days)</span>
+                    <span>Subacute<br>(4-14 days)</span>
+                    <span>Chronic<br>(15+ days)</span>
+                    <span>Recurrent</span>
+                    <span>Persistent</span>
+                </div>
+            </div>
+
+            <!-- Pain Scale (Visual) -->
+            <div class="input-group">
+                <label>
+                    <span class="label-icon">😣</span>
+                    Pain Level (0-10 Scale)
+                </label>
+                <div class="pain-scale">
+                    <div class="pain-item" data-value="0">
+                        <span class="pain-emoji">😊</span>
+                        <span class="pain-number">0</span>
+                        <span class="pain-label">No Pain</span>
+                    </div>
+                    <div class="pain-item" data-value="2">
+                        <span class="pain-emoji">🙂</span>
+                        <span class="pain-number">2</span>
+                        <span class="pain-label">Mild</span>
+                    </div>
+                    <div class="pain-item" data-value="4">
+                        <span class="pain-emoji">😐</span>
+                        <span class="pain-number">4</span>
+                        <span class="pain-label">Moderate</span>
+                    </div>
+                    <div class="pain-item" data-value="6">
+                        <span class="pain-emoji">😟</span>
+                        <span class="pain-number">6</span>
+                        <span class="pain-label">Severe</span>
+                    </div>
+                    <div class="pain-item" data-value="8">
+                        <span class="pain-emoji">😰</span>
+                        <span class="pain-number">8</span>
+                        <span class="pain-label">Very Severe</span>
+                    </div>
+                    <div class="pain-item" data-value="10">
+                        <span class="pain-emoji">😵</span>
+                        <span class="pain-number">10</span>
+                        <span class="pain-label">Unbearable</span>
+                    </div>
+                </div>
+                <div class="selected-pain" id="selectedPain">Selected: None</div>
+            </div>
+
+            <!-- Frequency Selector -->
+            <div class="input-group">
+                <label for="frequency">
+                    <span class="label-icon">🔄</span>
+                    Frequency
+                </label>
+                <select id="frequency">
+                    <option value="once">Once</option>
+                    <option value="daily">Daily</option>
+                    <option value="multiple-daily">Multiple times daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="intermittent">Intermittent</option>
+                    <option value="constant">Constant</option>
+                </select>
+            </div>
+
+            <!-- Trigger Factors -->
+            <div class="input-group">
+                <label>
+                    <span class="label-icon">⚡</span>
+                    Trigger Factors (Select all that apply)
+                </label>
+                <div class="toggle-buttons">
+                    <button class="toggle-btn" data-trigger="stress">😰 Stress</button>
+                    <button class="toggle-btn" data-trigger="diet">🍔 Diet</button>
+                    <button class="toggle-btn" data-trigger="exercise">🏃 Exercise</button>
+                    <button class="toggle-btn" data-trigger="weather">🌦️ Weather</button>
+                    <button class="toggle-btn" data-trigger="sleep">😴 Sleep</button>
+                    <button class="toggle-btn" data-trigger="medication">💊 Medication</button>
+                    <button class="toggle-btn" data-trigger="allergen">🌿 Allergen</button>
+                    <button class="toggle-btn" data-trigger="activity">🏋️ Activity</button>
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="input-group">
+                <label for="notes">
+                    <span class="label-icon">📝</span>
+                    Additional Notes (Optional)
+                </label>
+                <textarea id="notes" rows="3" placeholder="Describe any other relevant details about your symptoms..."></textarea>
+            </div>
+        </div>
+
+        <!-- Result Display -->
+        <div class="result-display" id="resultDisplay">
+            <div class="result-header">
+                <h3>📋 Your Symptom Assessment</h3>
+                <button class="reset-btn" onclick="resetForm()">🔄 Reset</button>
+            </div>
+            <div class="result-content">
+                <div class="result-item">
+                    <span class="result-label">Severity:</span>
+                    <span class="result-value" id="severityValue">Mild</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Duration:</span>
+                    <span class="result-value" id="durationValue">Acute (0-3 days)</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Pain Level:</span>
+                    <span class="result-value" id="painValue">Not specified</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Frequency:</span>
+                    <span class="result-value" id="frequencyValue">Once</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Triggers:</span>
+                    <span class="result-value" id="triggersValue">None</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Card -->
+        <div class="recommendations-card" id="recommendationsCard" style="display: none;">
+            <h3>💡 Recommendations</h3>
+            <div id="recommendationsContent"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn-primary" onclick="getRecommendations()">🔍 Get Recommendations</button>
+            <button class="btn-secondary" onclick="saveAssessment()">💾 Save Assessment</button>
+            <button class="btn-tertiary" onclick="location.href='symptomcheck.html'">💬 Chat with MediBot</button>
+        </div>
+
+        <!-- Medical Disclaimer -->
+        <div class="disclaimer-box">
+            <p><strong>⚠️ Medical Disclaimer:</strong> This tool provides general information only and is <strong>NOT</strong> a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+        </div>
+    </section>
+
+    <script src="Symptom Severity.js"></script>
+</body>
+</html>

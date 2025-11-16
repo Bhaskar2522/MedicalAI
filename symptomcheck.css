@@ -1,0 +1,475 @@
+/* =========================================
+   1. Variables & Reset
+   ========================================= */
+:root {
+    --primary-color: #00897b;      /* Teal */
+    --primary-dark: #00695c;       /* Darker Teal */
+    --primary-light: #b2dfdb;      /* Light Teal */
+    --secondary-color: #0277bd;    /* Blue */
+    --accent-color: #ff7043;       /* Orange for alerts */
+    --text-color: #37474f;         /* Dark Grey */
+    --text-light: #78909c;         /* Light Grey */
+    --bg-color: #f0f4f8;           /* Very light blue/grey bg */
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. Navigation Bar
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   3. Main Layout & Headers
+   ========================================= */
+.symptom-severity {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   4. Severity Card (Form Container)
+   ========================================= */
+.severity-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.input-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-dark);
+}
+
+.label-icon {
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+.tooltip {
+    font-size: 0.9rem;
+    margin-left: 8px;
+    cursor: help;
+    opacity: 0.7;
+}
+
+/* =========================================
+   5. Custom Sliders
+   ========================================= */
+.slider-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    transition: var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color);
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: var(--primary-dark);
+}
+
+.slider-value {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Dynamic positioning for slider value can be done in JS, 
+   centering it for CSS purposes */
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* =========================================
+   6. Pain Scale (Visual)
+   ========================================= */
+.pain-scale {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.pain-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    background: #f9f9f9;
+}
+
+.pain-item:hover {
+    background: #e0f2f1;
+    transform: translateY(-3px);
+}
+
+/* Class to be added via JS when selected */
+.pain-item.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.pain-emoji { font-size: 2rem; margin-bottom: 5px; }
+.pain-number { font-weight: 800; font-size: 1.2rem; color: var(--text-color); }
+.pain-label { font-size: 0.7rem; color: var(--text-light); }
+
+.selected-pain {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   7. Form Elements (Select, Textarea, Buttons)
+   ========================================= */
+select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fafafa;
+}
+
+.toggle-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toggle-btn {
+    padding: 10px 18px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.toggle-btn:hover {
+    border-color: var(--primary-light);
+}
+
+/* Class to be added via JS when active */
+.toggle-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 8px rgba(0, 137, 123, 0.3);
+}
+
+/* =========================================
+   8. Results & Recommendations Area
+   ========================================= */
+.result-display {
+    background: #e3f2fd; /* Light Blue */
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.reset-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.result-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.result-label {
+    font-weight: 700;
+    color: var(--text-color);
+    margin-right: 5px;
+}
+
+.result-value {
+    color: var(--primary-dark);
+}
+
+.recommendations-card {
+    background: #fff3e0; /* Light Orange */
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border-left: 5px solid var(--accent-color);
+    margin-bottom: 2rem;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   9. Action Buttons
+   ========================================= */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0, 137, 123, 0.3);
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    max-width: 350px;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-light);
+}
+
+.btn-tertiary {
+    background: transparent;
+    color: var(--text-light);
+    border: none;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   10. Disclaimer & Footer
+   ========================================= */
+.disclaimer-box {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px solid #ef9a9a;
+}
+
+/* =========================================
+   11. Media Queries (Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .severity-card {
+        padding: 1.5rem;
+    }
+
+    .pain-scale {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row on mobile */
+    }
+
+    .result-content {
+        grid-template-columns: 1fr; /* Stack results on mobile */
+    }
+}
+/* --- Error Message Style --- */
+.message.error {
+    background: #ffebee; /* Light Red Background */
+    border: 1px solid #ef9a9a;
+    color: #c62828;
+    border-left: 4px solid #d32f2f;
+    animation: shake 0.4s ease-in-out;
+}
+
+.message.error .message-content {
+    background: transparent; /* Override default gradient/white */
+    color: #c62828;
+    box-shadow: none;
+    padding-left: 10px;
+}
+
+/* Error Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    vertical-align: middle;
+}

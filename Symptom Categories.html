@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Categories - MED-AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Symptom Categories.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <h1 class="page-title">🩺 Symptom Categories</h1>
+        </div>
+    </header>
+
+    <section class="symptom-categories">
+  <p class="subtitle">Click on a category to explore common symptoms, causes, and self-care tips</p>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="searchInput" class="search-input" placeholder="Search symptoms or categories...">
+    <button class="clear-search" id="clearSearch" style="display: none;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="categories-grid">
+    <!-- Physical -->
+    <div class="category-card" data-target="#physical">
+      <div class="icon">🦴</div>
+      <h3>Physical</h3>
+      <p>Fatigue, dizziness, muscle weakness, joint pain, headache, swelling, fever</p>
+    </div>
+
+    <!-- Digestive -->
+    <div class="category-card" data-target="#digestive">
+      <div class="icon">🌡</div>
+      <h3>Digestive</h3>
+      <p>Nausea, vomiting, bloating, diarrhea, constipation, abdominal cramps, heartburn</p>
+    </div>
+
+    <!-- Skin & Hair -->
+    <div class="category-card" data-target="#skin">
+      <div class="icon">🌱</div>
+      <h3>Skin & Hair</h3>
+      <p>Rashes, itching, hair fall, nail changes, dry skin, eczema, acne</p>
+    </div>
+
+    <!-- Mental / Emotional -->
+    <div class="category-card" data-target="#mental">
+      <div class="icon">🧠</div>
+      <h3>Mental / Emotional</h3>
+      <p>Stress, mood swings, sleep issues, depression, brain fog, panic attacks</p>
+    </div>
+
+    <!-- Sensory -->
+    <div class="category-card" data-target="#sensory">
+      <div class="icon">👀👂👃</div>
+      <h3>Sensory</h3>
+      <p>Blurred vision, tinnitus, hearing loss, smell/taste changes, sensitivity, vertigo</p>
+    </div>
+
+    <!-- Respiratory -->
+    <div class="category-card" data-target="#respiratory">
+      <div class="icon">🫁</div>
+      <h3>Respiratory</h3>
+      <p>Shortness of breath, cough, wheezing, chest tightness, sneezing, nasal congestion</p>
+    </div>
+
+    <!-- Cardiovascular -->
+    <div class="category-card" data-target="#cardio">
+      <div class="icon">❤️</div>
+      <h3>Cardiovascular</h3>
+      <p>Palpitations, chest pain, swelling in legs, high/low blood pressure</p>
+    </div>
+
+    <!-- Pediatric -->
+    <div class="category-card" data-target="#pediatric">
+      <div class="icon">👶</div>
+      <h3>Pediatric</h3>
+      <p>Fever, cold symptoms, rashes, digestive issues, behavioral changes</p>
+    </div>
+  </div>
+
+  <!-- Details sections -->
+  <div class="category-details" id="categoryDetails">
+    <section id="physical" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">🦴</div>
+        <div>
+          <h3>Physical Symptoms</h3>
+          <p class="detail-subtitle">Fatigue, dizziness, muscle weakness, joint pain, headache, swelling, fever</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Dehydration, infection, poor sleep, overexertion, nutritional deficiencies</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Rest adequately, stay hydrated, light exercise, maintain regular sleep schedule, balanced diet</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Pain relievers (Paracetamol, Ibuprofen), electrolyte drinks, multivitamins</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="digestive" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">🌡</div>
+        <div>
+          <h3>Digestive Symptoms</h3>
+          <p class="detail-subtitle">Nausea, vomiting, bloating, diarrhea, constipation, abdominal cramps, heartburn</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Dietary issues, infections, stress, food intolerances, medications</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Balanced meals, proper hydration, avoid trigger foods, eat smaller portions, chew slowly</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Antacids, digestive enzymes, probiotics, anti-diarrheal medications</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skin" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">🌱</div>
+        <div>
+          <h3>Skin & Hair Symptoms</h3>
+          <p class="detail-subtitle">Rashes, itching, hair fall, nail changes, dry skin, eczema, acne</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Allergies, hormonal changes, infections, environmental factors, genetics</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Moisturize regularly, avoid irritants, protect from sun, gentle cleansing, maintain hygiene</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Topical creams, anti-itch lotions, medicated shampoos, moisturizers</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mental" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">🧠</div>
+        <div>
+          <h3>Mental / Emotional Symptoms</h3>
+          <p class="detail-subtitle">Stress, mood swings, sleep issues, depression, brain fog, panic attacks</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Work pressure, sleep deprivation, life changes, trauma, hormonal imbalances</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Meditation, regular breaks, therapy, exercise, social connections, sleep hygiene</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Herbal teas, relaxation supplements, melatonin for sleep, stress relief products</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sensory" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">👀👂👃</div>
+        <div>
+          <h3>Sensory Symptoms</h3>
+          <p class="detail-subtitle">Blurred vision, tinnitus, hearing loss, smell/taste changes, sensitivity, vertigo</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Ear infections, eye strain, sinus issues, neurological conditions, medications</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Rest eyes regularly, protect hearing, proper hygiene, avoid loud noises, eye exercises</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Eye drops, ear drops, saline nasal sprays, lubricating solutions</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="respiratory" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">🫁</div>
+        <div>
+          <h3>Respiratory Symptoms</h3>
+          <p class="detail-subtitle">Shortness of breath, cough, wheezing, chest tightness, sneezing, nasal congestion</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Allergies, cold/flu, asthma, environmental irritants, infections</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Avoid triggers, maintain clean air, stay hydrated, steam inhalation, rest</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Inhalers, antihistamines, decongestants, cough syrups, nasal sprays</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cardio" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">❤️</div>
+        <div>
+          <h3>Cardiovascular Symptoms</h3>
+          <p class="detail-subtitle">Palpitations, chest pain, swelling in legs, high/low blood pressure</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Hypertension, stress, diet, lack of exercise, genetic factors, lifestyle</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Regular exercise, balanced diet, monitor BP, reduce stress, limit salt intake</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Limited options - mostly lifestyle adjustments. Consult doctor for persistent symptoms</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pediatric" class="detail-section">
+      <div class="detail-header">
+        <div class="detail-icon">👶</div>
+        <div>
+          <h3>Pediatric Symptoms</h3>
+          <p class="detail-subtitle">Fever, cold symptoms, rashes, digestive issues, behavioral changes</p>
+        </div>
+        <button class="close-detail" onclick="closeDetailSection()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="detail-content">
+        <div class="info-card">
+          <div class="info-icon">🔍</div>
+          <h4>Common Causes</h4>
+          <p>Infections, diet, vaccinations, growth phases, environmental factors</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <h4>Self-care Tips</h4>
+          <p>Ensure hydration, adequate rest, monitor growth, maintain hygiene, balanced nutrition</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💊</div>
+          <h4>OTC Remedies</h4>
+          <p>Pediatric fever reducers, age-appropriate supplements, gentle medications</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+ <script src="Symptom Categories.js"></script>
+</body>
+</html>
