@@ -1,0 +1,176 @@
+/* --- Global Variables --- */
+:root {
+    --primary-blue: #007bff; /* Main medical/brand blue */
+    --light-gray: #f8f9fa; /* Page background */
+    --text-dark: #343a40;
+    --success-green: #28a745;
+}
+
+/* Basic Reset for consistent styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the body has a base style if this is the only CSS file */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7fa; /* Soft medical blue background */;
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 20px; /* Add padding to prevent content hitting edges */
+}
+
+/* --- Product Grid Container --- */
+
+.product-grid {
+    display: grid;
+    /* Responsive grid: minimum card width 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px; /* Spacing between cards */
+    max-width: 1300px;
+    margin: 0 auto; /* Center the grid */
+    padding-top: 20px;
+}
+
+/* --- Product Card Styling (Sleek/Modern Theme) --- */
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); /* Soft shadow */
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative; /* Needed for absolute delivery badge */
+}
+
+/* Hover effect */
+.product-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px); /* Subtle lift */
+}
+
+/* Image Section */
+.card-image {
+    width: 100%;
+    height: 160px; /* Fixed height for uniformity */
+    overflow: hidden;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+/* Details Section */
+.card-details {
+    padding: 15px 20px 20px;
+}
+
+.product-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    height: 40px; /* Enforce consistent description height */
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Footer & Action */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--success-green); /* Price stands out with a green accent */
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Delivery Badge (Top right corner) */
+.delivery-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    color: var(--primary-blue);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.delivery-badge i {
+    margin-right: 5px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .add-to-cart-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

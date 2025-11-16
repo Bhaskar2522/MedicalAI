@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - MED-AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Reset & Variables --- */
+        :root {
+            --primary: #009688;
+            --primary-dark: #00796b;
+            --secondary: #b2dfdb;
+            --text-dark: #263238;
+            --text-light: #546e7a;
+            --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%);
+            --card-bg: #ffffff;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 25px rgba(0,0,0,0.15);
+            --star-color: #ffc107;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        /* --- Main Container (Glassmorphism-ish) --- */
+        .main-container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- Close Button --- */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            color: #b0bec5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .close-btn:hover {
+            background: #eceff1;
+            color: #ef5350;
+            transform: rotate(90deg);
+        }
+
+        /* --- Header --- */
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        .review-count {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+            background: #e0f2f1;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* --- Review Summary (Dashboard) --- */
+        .summary-card {
+            display: flex;
+            gap: 50px;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .summary-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+        /* Left Side: Big Score */
+        .rating-circle {
+            text-align: center;
+            min-width: 140px;
+        }
+        .score {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(45deg, #009688, #4db6ac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stars-large { color: var(--star-color); font-size: 1.4rem; margin: 8px 0; letter-spacing: 2px; }
+        .rating-text { font-size: 0.85rem; font-weight: 700; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Right Side: Progress Bars */
+        .rating-bars { flex: 1; }
+        .bar-row { display: flex; align-items: center; font-size: 0.9rem; color: var(--text-light); margin-bottom: 8px; font-weight: 600; }
+        .star-label { width: 35px; }
+        
+        .bar-bg {
+            flex: 1;
+            height: 10px;
+            background: #eceff1;
+            border-radius: 10px;
+            margin: 0 15px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffc107, #ffca28);
+            border-radius: 10px;
+            width: 0; /* Start at 0 for animation */
+            animation: fillBar 1.5s ease-out forwards;
+        }
+
+        @keyframes fillBar { to { width: var(--target-width); } }
+
+        /* --- Controls (Filters) --- */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #eee;
+        }
+        
+        .control-group { display: flex; align-items: center; gap: 12px; }
+        .control-group label { font-weight: 700; color: var(--text-dark); font-size: 0.95rem; }
+        
+        /* Custom Select Styling */
+        .custom-select {
+            padding: 10px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .custom-select:hover { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(178, 223, 219, 0.3); }
+        .custom-select:focus { border-color: var(--primary); }
+
+        /* --- Review Cards --- */
+        .reviews-grid { display: flex; flex-direction: column; gap: 20px; }
+
+        .review-card {
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* Initial state for animation */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpCard 0.5s ease forwards;
+        }
+
+        /* Staggered Animation Delays handled in CSS */
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+        .review-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideUpCard {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary);
+        }
+
+        /* Card Header */
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .user-profile { display: flex; align-items: center; gap: 15px; }
+        
+        .avatar {
+            width: 45px; height: 45px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .user-details h4 { font-size: 1rem; color: var(--text-dark); margin-bottom: 2px; }
+        
+        .verified {
+            font-size: 0.75rem;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        
+        .card-rating { color: var(--star-color); font-size: 0.9rem; margin-top: 2px; }
+        .review-date { font-size: 0.8rem; color: #90a4ae; font-weight: 600; }
+
+        /* Card Body */
+        .review-text {
+            color: #546e7a;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            background: #fcfcfc;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #e0e0e0;
+        }
+
+        .product-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: #e0f2f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .review-card:hover .product-badge { background: #b2dfdb; }
+
+        /* --- Load More Button --- */
+        .load-more {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .load-more:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.3);
+        }
+        .load-more:active { transform: scale(0.98); }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .summary-card { flex-direction: column; text-align: center; gap: 25px; }
+            .rating-circle { min-width: auto; }
+            .controls { flex-direction: column; gap: 15px; }
+            .control-group { width: 100%; justify-content: space-between; }
+            .review-date { display: block; margin-top: 5px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <span class="close-btn" onclick="alert('Going back...')">&times;</span>
+
+        <div class="header-section">
+            <h2>Customer Reviews</h2>
+            <span class="review-count">1,235 Verified Ratings</span>
+        </div>
+
+        <div class="summary-card">
+            <div class="rating-circle">
+                <div class="score">4.8</div>
+                <div class="stars-large">★★★★★</div>
+                <p class="rating-text">Overall Rating</p>
+            </div>
+            <div class="rating-bars">
+                <div class="bar-row">
+                    <span class="star-label">5 ★</span>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 85%;"></div></div>
+                    <span>85%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="star-label">4 ★</span>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 10%;"></div></div>
+                    <span>10%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="star-label">3 ★</span>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 3%;"></div></div>
+                    <span>3%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="star-label">2 ★</span>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 1%;"></div></div>
+                    <span>1%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="star-label">1 ★</span>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 1%;"></div></div>
+                    <span>1%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Filter by Rating:</label>
+                <select id="ratingFilter" class="custom-select" onchange="filterReviews()">
+                    <option value="all">All Reviews</option>
+                    <option value="5">5 Stars Only</option>
+                    <option value="4">4 Stars & Up</option>
+                    <option value="3">3 Stars & Up</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Sort by:</label>
+                <select class="custom-select">
+                    <option value="newest">Newest First</option>
+                    <option value="highest">Highest Rated</option>
+                    <option value="lowest">Lowest Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="reviews-grid" id="reviewsList">
+            
+            <div class="review-card" data-rating="5">
+                <div class="card-header">
+                    <div class="user-profile">
+                        <div class="avatar" style="background: linear-gradient(135deg, #FF7043, #E64A19);">RD</div>
+                        <div class="user-details">
+                            <h4>Rohan D. <span class="verified">✓ Verified</span></h4>
+                            <div class="card-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <span class="review-date">Oct 20, 2025</span>
+                </div>
+                <p class="review-text">"This is a fantastic product and the delivery was quick. The vitamins were exactly as described. Highly recommend MED-AI for their service!"</p>
+                <span class="product-badge">📦 Product: Multivitamins</span>
+            </div>
+
+            <div class="review-card" data-rating="4">
+                <div class="card-header">
+                    <div class="user-profile">
+                        <div class="avatar" style="background: linear-gradient(135deg, #AB47BC, #7B1FA2);">NP</div>
+                        <div class="user-details">
+                            <h4>Neha P. <span class="verified">✓ Verified</span></h4>
+                            <div class="card-rating">★★★★☆</div>
+                        </div>
+                    </div>
+                    <span class="review-date">Oct 18, 2025</span>
+                </div>
+                <p class="review-text">"Good value for money, but shipping took a little longer than expected. The packaging was secure though."</p>
+                <span class="product-badge">📦 Product: Pain Relief Gel</span>
+            </div>
+
+            <div class="review-card" data-rating="5">
+                <div class="card-header">
+                    <div class="user-profile">
+                        <div class="avatar" style="background: linear-gradient(135deg, #42A5F5, #1565C0);">SK</div>
+                        <div class="user-details">
+                            <h4>Sameer K. <span class="verified">✓ Verified</span></h4>
+                            <div class="card-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <span class="review-date">Oct 22, 2025</span>
+                </div>
+                <p class="review-text">"Excellent service and clear description of the digestive supplement. Will order again."</p>
+                <span class="product-badge">📦 Product: Digestive Aid</span>
+            </div>
+
+             <div class="review-card" data-rating="5">
+                <div class="card-header">
+                    <div class="user-profile">
+                        <div class="avatar" style="background: linear-gradient(135deg, #26A69A, #004D40);">TS</div>
+                        <div class="user-details">
+                            <h4>Tanya S. <span class="verified">✓ Verified</span></h4>
+                            <div class="card-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <span class="review-date">Oct 20, 2025</span>
+                </div>
+                <p class="review-text">"Affordable and authentic products. I appreciate the detailed dosage instructions provided on the site."</p>
+                <span class="product-badge">📦 Product: Paracetamol</span>
+            </div>
+
+            <div class="review-card" data-rating="4">
+                <div class="card-header">
+                    <div class="user-profile">
+                        <div class="avatar" style="background: linear-gradient(135deg, #EF5350, #C62828);">DN</div>
+                        <div class="user-details">
+                            <h4>Divya N. <span class="verified">✓ Verified</span></h4>
+                            <div class="card-rating">★★★★☆</div>
+                        </div>
+                    </div>
+                    <span class="review-date">Oct 22, 2025</span>
+                </div>
+                <p class="review-text">"Cold tablets were effective. Took slightly longer to arrive but product quality is great."</p>
+                <span class="product-badge">📦 Product: Cold & Flu Relief</span>
+            </div>
+
+        </div>
+
+        <button class="load-more">Load More Reviews</button>
+
+    </div>
+
+    <script>
+        function filterReviews() {
+            const filterValue = document.getElementById('ratingFilter').value;
+            const reviews = document.querySelectorAll('.review-card');
+
+            reviews.forEach(review => {
+                const rating = review.getAttribute('data-rating');
+                // Reset animation for re-flow effect
+                review.style.animation = 'none';
+                review.offsetHeight; /* trigger reflow */
+                review.style.animation = 'slideUpCard 0.5s ease forwards';
+
+                if (filterValue === 'all') {
+                    review.style.display = 'block';
+                } else if (filterValue === '5' && rating === '5') {
+                    review.style.display = 'block';
+                } else if (filterValue === '4' && parseInt(rating) >= 4) {
+                    review.style.display = 'block';
+                } else if (filterValue === '3' && parseInt(rating) >= 3) {
+                    review.style.display = 'block';
+                } else {
+                    review.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

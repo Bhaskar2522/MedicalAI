@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View on Map</title>
+    <link rel="stylesheet" href="Map.css">
+</head>
+<body>
+    <!-- 🌍 View on Map Section -->
+<section class="view-map-section" id="view-map">
+  <h2 class="section-title">📍 Find Us on the Map</h2>
+
+  <div class="map-container">
+    <!-- Left Side: Map Embed -->
+    <div class="map-box">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.115688217089!2d73.82784957488537!3d18.563719982539155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf9abf1ff47d%3A0x1f7255d9bbf08a9d!2sApollo%20Pharmacy!5e0!3m2!1sen!2sin!4v1699549336621!5m2!1sen!2sin" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Right Side: Location Info -->
+    <div class="location-info">
+      <h3>🏥 MED-AI</h3>
+      <p><strong>📫 Address:</strong> 123 Green Avenue, Pune, Maharashtra, India</p>
+      <p><strong>☎️ Phone:</strong> +91 98765 43210</p>
+      <p><strong>⏰ Hours:</strong><br>Mon–Sat: 9 AM – 9 PM<br>Sun: 10 AM – 6 PM</p>
+      <p><strong>🏙️ Landmark:</strong> Opposite Apollo Hospital</p>
+      <p><strong>🅿️ Parking:</strong> Available</p>
+      <p><strong>💊 Emergency:</strong> 24x7 Support</p>
+
+      <div class="btn-group">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=MediCare+Pharmacy+Pune" target="_blank" class="map-btn">🚗 Get Directions</a>
+        <a href="https://www.google.com/maps/@18.5637,73.8278,3a,75y,90t/data=!3m6!1e1" target="_blank" class="map-btn secondary">🏙️ Street View</a>
+      </div>
+
+
+<script>
+    // 🌟 JS for subtle animation on scroll
+document.addEventListener("scroll", () => {
+  const mapSection = document.querySelector(".view-map-section");
+  const position = mapSection.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (position < screenHeight - 100) {
+    mapSection.classList.add("visible");
+  }
+});
+
+</script>
+
+</body>
+</html>
